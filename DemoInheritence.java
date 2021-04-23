@@ -9,40 +9,82 @@ package javaoop;
  *
  * @author quach
  */
-abstract class Abs {
+class People {
 
-    public abstract int sum(int numA, int numB);
-}
+    private String name;
+    private int age;
 
-interface Inter {
+    public People(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
-    public abstract int sum(int numA, int numB);
-}
+    public String getName() {
+        return name;
+    }
 
-class AbsInterface implements Inter {
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    @Override
-    public int sum(int numA, int numB) {
-        return numA + numB;
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void showPeople() {
+        System.out.println("Ten:" + this.getName());
+        System.out.println("Tuoi:" + this.getAge());
     }
 
 }
 
-public class DemoAbstraction extends Abs {
+class Student extends People {
 
-    @Override
-    public int sum(int numA, int numB) {
-        return numA + numB;
+    private String id;
+    private int grade;
+
+    public Student(String name, int age, String id, int grade) {
+        super(name, age);
+        this.id = id;
+        this.grade = grade;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public void showStudent() {
+        super.showPeople();
+        System.out.println("Ma hoc sinh:" + this.getId());
+        System.out.println("Lop:" + this.getGrade());
+    }
+
+}
+
+public class DemoInheritence {
 
     public static void main(String[] args) {
-        Abs demo = new DemoAbstraction();
-        System.out.println(demo.sum(10, 20));
 
-        AbsInterface absi = new AbsInterface();
+        
+        Student student = new Student("Quach Hong Thu", 18, "123", 12);
 
-        System.out.println(absi.sum(100, 20));
-
+        student.showStudent();
     }
 
 }
