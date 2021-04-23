@@ -9,40 +9,44 @@ package javaoop;
  *
  * @author quach
  */
-abstract class Abs {
+class People {
 
-    public abstract int sum(int numA, int numB);
-}
+    private String name;
+    private int age;
 
-interface Inter {
+    public People(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
-    public abstract int sum(int numA, int numB);
-}
+    public String getName() {
+        return name;
+    }
 
-class AbsInterface implements Inter {
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    @Override
-    public int sum(int numA, int numB) {
-        return numA + numB;
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
 }
 
-public class DemoAbstraction extends Abs {
-
-    @Override
-    public int sum(int numA, int numB) {
-        return numA + numB;
-    }
+public class DemoEncapsulation {
 
     public static void main(String[] args) {
-        Abs demo = new DemoAbstraction();
-        System.out.println(demo.sum(10, 20));
 
-        AbsInterface absi = new AbsInterface();
+        People p = new People("", 0);
+        p.setAge(22);
+        p.setName("Quach Hong Thu");
 
-        System.out.println(absi.sum(100, 20));
-
+        System.out.println("Ten: " + p.getName());
+        System.out.println("Tuoi: " + p.getAge());
     }
 
 }
