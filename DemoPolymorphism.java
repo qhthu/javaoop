@@ -9,39 +9,59 @@ package javaoop;
  *
  * @author quach
  */
-abstract class Abs {
+class Summary {
 
-    public abstract int sum(int numA, int numB);
-}
+    private int numA;
+    private int numB;
+    private int numC;
 
-interface Inter {
+    public Summary(int numA, int numB, int numC) {
+        this.numA = numA;
+        this.numB = numB;
+        this.numC = numC;
+    }
 
-    public abstract int sum(int numA, int numB);
-}
+    public int getNumA() {
+        return numA;
+    }
 
-class AbsInterface implements Inter {
+    public void setNumA(int numA) {
+        this.numA = numA;
+    }
 
-    @Override
+    public int getNumB() {
+        return numB;
+    }
+
+    public void setNumB(int numB) {
+        this.numB = numB;
+    }
+
+    public int getNumC() {
+        return numC;
+    }
+
+    public void setNumC(int numC) {
+        this.numC = numC;
+    }
+
     public int sum(int numA, int numB) {
         return numA + numB;
     }
 
+    public int sum(int numA, int numB, int numC) {
+        return numA + numB + numC;
+    }
+
 }
 
-public class DemoAbstraction extends Abs {
-
-    @Override
-    public int sum(int numA, int numB) {
-        return numA + numB;
-    }
+public class DemoPolymorphism {
 
     public static void main(String[] args) {
-        Abs demo = new DemoAbstraction();
-        System.out.println(demo.sum(10, 20));
+        Summary s = new Summary(0, 0, 0);
 
-        AbsInterface absi = new AbsInterface();
-
-        System.out.println(absi.sum(100, 20));
+        System.out.println("Tong cua 2 so: " + s.sum(20, 33));
+        System.out.println("Tong cua 3 so: " + s.sum(20, 33, 55));
 
     }
 
